@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BusPassManagementSystem.Models.BusDetail>
+
+@{
+    ViewData["Title"] = "UpdateRoute";
+}
+
+<h1>Update Route</h1>
+<br/>
+<h3>Select Bus to Update Route</h3>
+
+<p>
+    <a asp-action="AddBus">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfStops)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfStops)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) 
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

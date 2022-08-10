@@ -1,0 +1,56 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<style>
+.button{
+        background-color: #1c87c9;
+        border: none;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+}
+</style>
+@{
+    try
+    {
+        var role = HttpContextAccessor.HttpContext.Session.GetInt32("role");
+        if (role == 101)
+        {
+            
+            <h1>Admin Dashboard</h1>
+            <br />
+            
+            <a href="~/Admin/AddBus" class= "button">ADD BUS</a>
+            <br />
+            
+            <a href="~/Admin/UpdateRoute" class= "button">UPDATE ROUTE</a>
+
+        }
+        else if (role == 0)
+        {
+            <h1>User Dashboard</h1>
+
+            <br />
+            <a href="~/User/ViewBuses" class= "button">VIEW BUSES</a>
+            <br/>
+            <a href="~/User/AddPass" class= "button">APPLY PASS</a>
+            <br/>
+            <a href="~/User/ViewPass" class= "button">VIEW PASS</a>
+        }
+
+    }
+    catch
+    {
+        
+    }
+}
+
+@{
+}
